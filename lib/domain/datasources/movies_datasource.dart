@@ -1,5 +1,7 @@
-import 'package:cinemapedia/domain/entities/movie.dart';
 
-abstract class MoviesDatasource {
-  Future<List<Movie>> getNowPlaying({int page = 1});
+import 'package:cinemapedia/infraestructure/datasources/moviedb_datasource.dart';
+
+class MoviedbDatasource extends MoviesDatasource{
+
+  
 }
