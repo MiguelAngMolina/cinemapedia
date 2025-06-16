@@ -9,5 +9,7 @@ abstract class MoviesRepositorie {
         
   Future<List<Movie>> getTopRated({ int page = 1 });
 
+  Future<Movie> getMoviebyId(String id);
+
 
 }
