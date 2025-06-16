@@ -61,8 +61,10 @@ class _MovieHorizontalListviewState extends State<MovieHorizontalListview> {
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
             itemBuilder: (context, index) {
-              return _Slide(
-                movie: widget.movies[index],
+              return FadeInRight(
+                child: _Slide(
+                  movie: widget.movies[index],
+                ),
               );
             },
           ))
@@ -141,7 +143,7 @@ class _Slide extends StatelessWidget {
                 width: 10,
               ),
               Text(
-                HumanFormats.number(movie.popularity),
+                HumanFormats.number(movie.voteCount.toDouble()),
                 style: textStyle.bodySmall,
               )
             ],
