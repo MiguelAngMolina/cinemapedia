@@ -45,7 +45,6 @@ class SearchMovieDelegate extends SearchDelegate<Movie?> {
           itemCount: movies.length,
           itemBuilder: (context, index) {
             final movie = movies[index];
-
             return ListTile(
               title: Text(movie.title),
             );
