@@ -9,7 +9,7 @@ class FavortiesView extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Favorites'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Favorites'),
       ),
     );
