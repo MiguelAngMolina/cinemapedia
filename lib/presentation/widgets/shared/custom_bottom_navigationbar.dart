@@ -1,26 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomBottomNavigationbar extends StatelessWidget {
-  const CustomBottomNavigationbar({super.key});
+  final int pageIndex;
+  const CustomBottomNavigationbar({super.key, required this.pageIndex});
+
+  void onItemTapped(BuildContext context, int index) {
+    switch (index) {
+      case 0:
+        context.go('/home/0');
+        break;
+
+      case 1:
+        context.go('/home/1');
+        break;
+
+      case 2:
+        context.go('/home/2');
+        break;
+
+      default:
+        return context.go('home/0');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      elevation: 10,
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home_max),
-          label: 'Inicio'
-          ),
+        currentIndex: pageIndex,
+        onTap: (value) => onItemTapped(context,value),
+        elevation: 10,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home_max), label: 'Inicio'),
           BottomNavigationBarItem(
-          icon: Icon(Icons.label_outline_rounded),
-          label: 'Categorías'
-          ),
+              icon: Icon(Icons.label_outline_rounded), label: 'Categorías'),
           BottomNavigationBarItem(
-          icon: Icon(Icons.favorite_border),
-          label: 'Favoritios'
-          ),
-      ]
-    );
+              icon: Icon(Icons.favorite_border), label: 'Favoritios'),
+        ]);
   }
 }
