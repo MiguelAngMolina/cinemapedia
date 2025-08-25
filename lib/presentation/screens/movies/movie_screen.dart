@@ -235,7 +235,8 @@ class _CustomSliverAppbar extends StatelessWidget {
               const _CustomGradient(
                 begin: Alignment.topCenter, 
                 end: Alignment.bottomCenter,
-                stops: [0.5, 1.0], 
+                stops: [0.8, 1.0], 
+                
                 colors:  [
                   Colors.transparent,
                   Colors.black87,
@@ -257,7 +258,7 @@ class _CustomSliverAppbar extends StatelessWidget {
                   Colors.black87,
                   Colors.transparent,
                 ]),
-                
+
             ],
           ),
         ));
