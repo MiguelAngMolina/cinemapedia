@@ -4,3 +4,5 @@ export 'package:cinemapedia/presentation/widgets/movies/movies_slideshow.dart';
 export 'package:cinemapedia/presentation/widgets/shared/custom_bottom_navigationbar.dart';
 export 'shared/custom_appbar.dart';
 export 'shared/full_screen_loader.dart';
+export 'movies/movie_masonry.dart';
+export 'movies/movie_poster_link.dart';
