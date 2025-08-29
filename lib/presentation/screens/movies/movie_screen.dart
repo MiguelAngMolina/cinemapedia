@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:cinemapedia/config/helpers/human_formats.dart';
 import 'package:cinemapedia/domain/entities/movie.dart';
 import 'package:cinemapedia/presentation/providers/providers.dart';
 import 'package:cinemapedia/presentation/widgets/widgets.dart';
@@ -138,7 +139,17 @@ class _TitleAndOverview extends StatelessWidget {
               children: [
                 Text(movie.title, style: textStyles.titleLarge),
                 Text(movie.overview),
+                const SizedBox(height: 10 ),
                 MovieRating(voteAverage: movie.voteAverage),
+                Row(
+                  children: [
+                    const Text('Estreno:', style: TextStyle(fontWeight: FontWeight.bold)),
+                    const SizedBox(width: 5 ),
+                    Text(HumanFormats.shortDate(movie.releaseDate!))
+                  ],
+                )
+
+
               ],
             ),
           )
