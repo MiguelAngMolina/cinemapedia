@@ -39,7 +39,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.cinemapedia"
-        minSdk = 17
+        minSdk = 20
         targetSdk = flutter.targetSdkVersion
         versionCode = flutterVersionCode.toInteger()
         versionName = flutterVersionName
