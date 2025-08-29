@@ -47,12 +47,14 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
       pageController.animateToPage(
         widget.pageIndex, 
         curve: Curves.easeInOut, 
-        duration: const Duration( milliseconds: 250)
+        duration: const Duration( milliseconds: 250), 
       );
     }
 
     return  Scaffold(
       body: PageView(
+         //* Esto evitará que rebote 
+        physics: const NeverScrollableScrollPhysics(),
         controller: pageController,
         // index: pageIndex,
         children: viewRoutes,
