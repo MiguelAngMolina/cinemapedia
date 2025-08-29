@@ -192,12 +192,7 @@ class _CustomSliverAppbar extends ConsumerWidget {
               )
         ],
         flexibleSpace: FlexibleSpaceBar(
-          titlePadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-          // title: Text(
-          //   movie.title,
-          //   style: const TextStyle(color: Colors.white, fontSize: 20),
-          //   textAlign: TextAlign.start,
-          // ),
+        titlePadding: const EdgeInsets.only(bottom: 0),
           background: Stack(
             children: [
               SizedBox.expand(
