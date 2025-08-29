@@ -2,6 +2,8 @@ import 'package:cinemapedia/presentation/providers/providers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../widgets.dart';
+
 
 final similarMoviesProvider = FutureProvider.family((ref, int movieId) {
   final movieRepository = ref.watch(movieRepositoryProvider);
@@ -16,13 +18,20 @@ class SimilarMovies extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref ) {
-    return FutureBuilder(
-      future: ref.read(movieRepositoryProvider).getSimilarMovies(movieId),
-      builder: (context, snapshot) {
+      final similarMoviesFuture = ref.watch(similarMoviesProvider(movieId));
+
+      return similarMoviesFuture.when(
+      data: ( movies) => Container(
+        margin: const EdgeInsetsDirectional.only(bottom: 50),
+        child: MovieHorizontalListview(
+          title: 'Películas similares',
+          movies: movies
+        ),
+      ), 
+      error: (_ , __) => const Center(child: Text('No se pudo cargar películas similares') ), 
+      loading: () => const Center(child: CircularProgressIndicator(strokeWidth: 2)),
         // if ( snapshot. )
 
-        return Placeholder();
-      },
     );
   }
 }
