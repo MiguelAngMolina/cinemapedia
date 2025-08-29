@@ -1,8 +1,9 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:cinemapedia/config/helpers/human_formats.dart';
 import 'package:cinemapedia/domain/entities/movie.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
+import '../widgets.dart';
 
 class MovieHorizontalListview extends StatefulWidget {
   final List<Movie> movies;
@@ -85,7 +86,7 @@ class _Slide extends StatelessWidget {
     final textStyle = Theme.of(context).textTheme;
 
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 8),
+      margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -129,29 +130,10 @@ class _Slide extends StatelessWidget {
           ),
 
           //*Rating
-          Row(
-            children: [
-              Icon(
-                Icons.star_half_rounded,
-                color: Colors.yellow.shade800,
-              ),
-              const SizedBox(
-                width: 3,
-              ),
-              Text(
-                '${movie.voteAverage}',
-                style: textStyle.bodyMedium
-                    ?.copyWith(color: Colors.yellow.shade800),
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              Text(
-                HumanFormats.number(movie.voteCount.toDouble()),
-                style: textStyle.bodySmall,
-              )
-            ],
-          )
+          MovieRating(
+            voteAverage: movie.voteAverage, 
+            popularity: movie.popularity
+          ),
         ],
       ),
     );
