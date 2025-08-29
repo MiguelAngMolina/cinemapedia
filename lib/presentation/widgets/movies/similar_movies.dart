@@ -24,7 +24,7 @@ class SimilarMovies extends ConsumerWidget {
       data: ( movies) => Container(
         margin: const EdgeInsetsDirectional.only(bottom: 50),
         child: MovieHorizontalListview(
-          title: 'Películas similares',
+          title: 'Recomendaciones',
           movies: movies
         ),
       ), 
