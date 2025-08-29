@@ -6,6 +6,8 @@ import 'package:cinemapedia/infraestructure/models/moviedb/movie_details.dart';
 import 'package:cinemapedia/infraestructure/models/moviedb/moviedb_response.dart';
 import 'package:dio/dio.dart';
 
+import '../models/models.dart';
+
 class MoviedbDatasource extends MoviesDatasource {
   final dio = Dio(BaseOptions(
       baseUrl: 'https://api.themoviedb.org/3',
@@ -86,4 +88,21 @@ class MoviedbDatasource extends MoviesDatasource {
     final response = await dio.get('/movie/$movieId/similar');
     return _jsonToMovies(response.data);
   }
+
+
+    @override
+  Future<List<String>> getYoutubeVideosById(int movieId) async {
+    final response = await dio.get('/movie/$movieId/videos');
+    final moviedbVideosReponse = MoviedbVideosResponse.fromJson(response.data);
+    final youtubeIds = <String>[];
+
+    for (final video in moviedbVideosReponse.results) {
+      if ( video.site == 'YouTube' ) {
+        youtubeIds.add(video.key);
+      }
+    }
+
+    return youtubeIds;
+  }
+
 }

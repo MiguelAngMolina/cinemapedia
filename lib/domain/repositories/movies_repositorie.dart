@@ -15,8 +15,6 @@ abstract class MoviesRepositorie {
 
   Future<List<Movie>> getSimilarMovies( int movieId );
 
-
-
-
+  Future<List<String>> getYoutubeVideosById( int movieId );
 
 }
