@@ -206,6 +206,7 @@ class _CustomSliverAppbar extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final isFavoriteFuture = ref.watch(isFavoriteProvider(movie.id));
     final size = MediaQuery.of(context).size;
+    final scaffoldBackgroundColor = Theme.of(context).scaffoldBackgroundColor;
 
     return SliverAppBar(
         backgroundColor: Colors.black,
@@ -255,35 +256,41 @@ class _CustomSliverAppbar extends ConsumerWidget {
                   },
                 ),
               ),
+
               const _CustomGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  stops: [
-                    0.8,
-                    1.0
-                  ],
-                  colors: [
-                    Colors.transparent,
-                    Colors.black87,
-                  ]),
-              const _CustomGradient(
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                  stops: [
-                    0.0,
-                    0.3
-                  ],
-                  colors: [
-                    Colors.black54,
-                    Colors.transparent,
-                  ]),
-              const _CustomGradient(begin: Alignment.topLeft, stops: [
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                stops: [
                 0.0,
                 0.2
+              ], colors: [
+                Colors.black54,
+                Colors.transparent,
+              ]),
+
+              const _CustomGradient(begin: Alignment.topLeft, stops: [
+                0.0,
+                0.3
               ], colors: [
                 Colors.black87,
                 Colors.transparent,
               ]),
+
+              
+               _CustomGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: const [
+                    0.7,
+                    1.0
+                  ],
+                  colors: [
+                    Colors.transparent,
+                     scaffoldBackgroundColor
+                  ]),
+            
+
+              
             ],
           ),
         ));
