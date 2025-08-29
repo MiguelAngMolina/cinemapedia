@@ -62,13 +62,7 @@ class HomeViewState extends ConsumerState<HomeView> {
                   loadNextPage: () {
                     ref.read(upComingMoviesProvider.notifier).loadNextPage();
                   }),
-              MovieHorizontalListview(
-                  movies: popularMovies,
-                  title: 'Populares',
-                  // subTitle: 'Lunes 20',
-                  loadNextPage: () {
-                    ref.read(popularMoviesProvider.notifier).loadNextPage();
-                  }),
+
               MovieHorizontalListview(
                   movies: topRatedMovies,
                   title: 'Mejor calificadas',
