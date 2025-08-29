@@ -72,6 +72,8 @@ class _MovieDetails extends StatelessWidget {
 
         ActorsByMovie(movieId: movie.id.toString()),
 
+        SimilarMovies(movieId: movie.id ),
+
         //Generos de la pelicula
       ],
     );
