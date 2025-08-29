@@ -95,26 +95,16 @@ class _Slide extends StatelessWidget {
             width: 150,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: Image.network(
-                movie.posterPath,
-                fit: BoxFit.cover,
-                width: 150,
-                loadingBuilder: (context, child, loadingProgress) {
-                  if (loadingProgress != null) {
-                    return const Center(
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                      ),
-                    );
-                  }
-
-                  return GestureDetector(
-                    onTap: ()=> context.push('/home/0/movie/${movie.id}'),
-                    child: FadeIn(child: child),
-                  );
-                },
-              ),
+              child: GestureDetector(
+                onTap: () => context.push('/home/0/movie/${ movie.id }'),
+                child: FadeInImage(
+                  height: 220,
+                  fit: BoxFit.cover,
+                  placeholder: const AssetImage('assets/loaders/bottle-loader.gif'), 
+                  image: NetworkImage(movie.posterPath)
+                ),
             ),
+          ),
           ),
           const SizedBox(
             height: 5,
@@ -131,8 +121,7 @@ class _Slide extends StatelessWidget {
 
           //*Rating
           MovieRating(
-            voteAverage: movie.voteAverage, 
-            popularity: movie.popularity
+            voteAverage: movie.voteAverage
           ),
         ],
       ),
